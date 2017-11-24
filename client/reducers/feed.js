@@ -1,7 +1,8 @@
 import * as actions from "../actions/actions";
 
 const initialState = {
-    news : []
+    news : [],
+    after: '',
 };
 
 const feed = (state = initialState, action) => {
@@ -9,7 +10,8 @@ const feed = (state = initialState, action) => {
         case actions.FEED.SUCCESS:
             return {
                 ...state,
-                news: action.response,
+                news: action.response.children,
+                after: action.response.after,
                 isFetching: false
             };
         case actions.FEED.FAILURE:

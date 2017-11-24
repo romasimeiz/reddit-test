@@ -6,6 +6,7 @@ import {feed} from '../actions/actions';
 
 const mapStateToProps = state => ({
     list: state.feed.news,
+    after: state.feed.after,
 });
 
 const mapDispatchToProps = (dispatch) => {
