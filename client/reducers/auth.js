@@ -1,34 +1,30 @@
 import * as actions from "../actions/actions";
 
 const initialState = {
-    project : {},
+
 };
 
-const projectEdit = (state = initialState, action) => {
+const auth = (state = initialState, action) => {
     switch (action.type) {
-        case actions.PROJECT_EDIT.SUCCESS:
+        case actions.AUTH.SUCCESS:
             return {
                 ...state,
-                project: action.response.project,
-                users: action.response.users,
                 isFetching: false
             };
-        case actions.PROJECT_EDIT.FAILURE:
+        case actions.AUTH.FAILURE:
             return {
                 ...state,
                 errorMessage: action.errorMessage,
                 isFetching: false
             };
-
-        case actions.PROJECT_EDIT.REQUEST:
+        case actions.AUTH.REQUEST:
             return {
                 ...state,
-                isFetching: false
+                isFetching: true
             };
-
         default:
             return state
     }
 };
 
-export default projectEdit;
+export default auth;

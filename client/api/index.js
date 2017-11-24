@@ -1,14 +1,19 @@
 import 'whatwg-fetch';
-var Config = require('Config');
+const Config = require('Config');
+
 /**
  * default headers
  * enabled cors
  */
 const globalOptions = {
     headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
+        'Accept'                       : 'application/json',
+        'Content-Type'                 : 'application/json',
+        'Access-Control-Allow-Origin'  : '*',
+        'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers' : 'Origin, Content-Type, X-Auth-Token',
     },
+
     mode: "cors",
 };
 

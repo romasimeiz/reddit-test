@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Layout from '../Layout';
-import List from '../List';
+import Layout from '../../containers/Layout';
+import List from '../../containers/List';
+import reddit from 'reddit.js';
+
 
 export default class App extends Component {
     render() {

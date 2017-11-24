@@ -8,6 +8,7 @@ function createRequestTypes (base){
 
 export const LOGIN = createRequestTypes('LOGIN');
 export const FEED = createRequestTypes('FEED');
+export const AUTH = createRequestTypes('AUTH');
 
 export const login = {
     request: request  => ({type: LOGIN.REQUEST, request}),
@@ -19,4 +20,10 @@ export const feed = {
     request: request  => ({type: FEED.REQUEST, request}),
     success: response => ({type: FEED.SUCCESS, response}),
     error:   error    => ({type: FEED.FAILURE, error})
+};
+
+export const auth = {
+    request: request  => ({type: AUTH.REQUEST, request}),
+    success: response => ({type: AUTH.SUCCESS, response}),
+    error:   error    => ({type: AUTH.FAILURE, error})
 };

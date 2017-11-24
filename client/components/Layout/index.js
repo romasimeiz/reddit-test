@@ -5,6 +5,10 @@ export default class Layout extends Component {
         super(props);
     }
 
+    componentDidMount() {
+        //this.props.makeAuth();
+    }
+
     render() {
         return (
             <div id="wrapper">
