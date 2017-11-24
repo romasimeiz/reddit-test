@@ -1,5 +1,5 @@
 import 'whatwg-fetch';
-
+var Config = require('Config');
 /**
  * default headers
  * enabled cors
@@ -15,8 +15,7 @@ const globalOptions = {
 /**
  * Api URL
  */
-//const apiUrl = 'http://antivirus.local/api';
-const apiUrl = document.host;
+const apiUrl = Config.api_url;
 
 /**
  * Parses the JSON returned by a network request

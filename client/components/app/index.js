@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-
+import Layout from '../Layout';
+import List from '../List';
 
 export default class App extends Component {
     render() {
         return (
             <div>
-                Hello! I'm your App!
+                <Layout>
+                    <List />
+                </Layout>
             </div>
         );
     }
