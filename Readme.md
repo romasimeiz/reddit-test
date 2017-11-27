@@ -27,3 +27,5 @@ $ npm run build
 # License
 
 [MIT](License.md)
+
+https://quip.com/CfG8AVfaqHdk  - my task
