@@ -1,13 +1,9 @@
 import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';
-import auth from './auth';
-import feed from './feed';
+import feedReducer from '../bundles/List/Reducers';
 /**
  * Combine reducers
  */
 
 export default combineReducers({
-    form: formReducer,
-    auth,
-    feed,
+    feedReducer
 });
