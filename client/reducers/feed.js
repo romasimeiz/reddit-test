@@ -14,17 +14,30 @@ const feed = (state = initialState, action) => {
                 after: action.response.after,
                 isFetching: false
             };
+
+        case actions.FEED.MORE_SUCCESS:
+            return {
+                ...state,
+                news: state.news.concat(action.response.children),
+                after: action.response.after,
+                isFetching: false
+            };
+
         case actions.FEED.FAILURE:
+        case actions.FEED.MORE_FAILURE:
             return {
                 ...state,
                 errorMessage: action.errorMessage,
                 isFetching: false
             };
+
         case actions.FEED.REQUEST:
+        case actions.FEED.MORE_REQUEST:
             return {
                 ...state,
                 isFetching: true
             };
+
         default:
             return state
     }

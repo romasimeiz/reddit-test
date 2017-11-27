@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import NewsItem from './news-item';
+import Pagination from './Pagination';
+import {getMoreNews} from "../../actions/actions";
 
 export default class List extends Component {
     constructor(props) {
@@ -11,17 +13,20 @@ export default class List extends Component {
     }
 
     render() {
-        const {list} = this.props;
+        const {list, getMoreNews, getLastNews, after} = this.props;
         return (
-            <table className="table">
-                <tbody>
-                    {
-                        list.map(function (value, key) {
-                            return <NewsItem news={value.data} key={key}/>
-                        })
-                    }
-                </tbody>
-            </table>
+            <div>
+                <table className="table">
+                    <tbody>
+                        {
+                            list.map(function (value, key) {
+                                return <NewsItem news={value.data} key={key}/>
+                            })
+                        }
+                    </tbody>
+                </table>
+                <Pagination getLastNews={ getLastNews } getMoreNews={ getMoreNews } after={after} />
+            </div>
         );
     }
 }

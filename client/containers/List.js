@@ -13,8 +13,12 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getLastNews() {
             dispatch(feed.request());
+        },
+
+        getMoreNews(after) {
+            dispatch(feed.more_request(after));
         }
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps, )(List);
+export default connect(mapStateToProps, mapDispatchToProps)(List);

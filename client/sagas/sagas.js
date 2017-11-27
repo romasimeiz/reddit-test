@@ -5,7 +5,7 @@ import apiFetch from '../api';
 import { SubmissionError, startSubmit, stopSubmit, reset } from 'redux-form';
 const Config = require('Config');
 import '../api/reddit';
-import getReddit from "../api/reddit";
+import {getMore, getTop} from "../api/reddit";
 
 const CLIENT_ID = "F2EQqQfluydQiQ";
 const CLIENT_SECRET = "IYElEBtN5pEO0FMaCRpaTrNF_jw";
@@ -53,8 +53,17 @@ function* watchAuth() {
 function* watchFeed() {
     while (true) {
         yield take(actions.FEED.REQUEST);
-        const data = yield call(getReddit, 'news', 15);
+        const data = yield call(getTop, 'news', 15);
         yield put(actions.feed.success(data.data));
+    }
+}
+
+function* watchMoreNews() {
+    while (true) {
+        const {request} = yield take(actions.FEED.MORE_REQUEST);
+        const data = yield call(getMore, 'news', { after:request.after, limit:15 });
+        console.log(data.data);
+        yield put(actions.feed.more_success(data.data));
     }
 }
 
@@ -63,5 +72,6 @@ export default function* rootSaga() {
         fork(watchLogin),
         fork(watchAuth),
         fork(watchFeed),
+        fork(watchMoreNews),
     ]
 }
